@@ -20,14 +20,16 @@
          src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
       <script type = "text/javascript" language = "javascript">
          $(document).ready(function() {
-      
-            $("#search1").click(function(event){
-               $.getJSON('result.json', function(jd) {
-                  $('#stage').html('<p> Name: ' + jd.name + '</p>');
-                  $('#stage').append('<p>Age : ' + jd.age+ '</p>');
-                  $('#stage').append('<p> Sex: ' + jd.sex+ '</p>');
-               });
-            });
+ 
+$("search1").click(function(){   
+  $.ajax({
+    url: 'http://jsonplaceholder.typicode.com/posts',
+    method: 'post',
+    dataType: 'json',
+    data:html,
+    success: success
+  });
+});
         
          });
       </script>
